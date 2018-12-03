@@ -69,6 +69,7 @@ view.addChild(background);
             physikz.updateSpace(space, physikz.hitTestRadial, rules.handleCollision);
             playerManager.hitTest(body);
         });
+
     }
     
     // TODO 1 : add a heads-up display to game
@@ -77,7 +78,8 @@ view.addChild(hud);
 window.hud = hud;
 
     // TODO 6 : create game manager
-
+var game = opspark.createGameManager(app,hud);
+opspark.runLevelInGame(game);
 
 };
 

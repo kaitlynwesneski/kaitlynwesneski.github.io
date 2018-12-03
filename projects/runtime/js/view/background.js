@@ -19,6 +19,7 @@ var background = function (window) {
         // container which will be returned
         var background;
         var tree;
+        var buildings = [];
         // Add any variables that will be used by render AND update here:
         
         // add objects for display inb ackground
@@ -46,14 +47,23 @@ var background = function (window) {
 }
             
             var moon = draw.bitmap('img/moon.png');
-            moon.x = 300;
-            moon.y = 25;
-            moon.scaleX = 1.0;
-            moon.scaleY = 1.0;
+            moon.x = 1000;
+            moon.y = 35;
+            moon.scaleX = 0.6;
+            moon.scaleY = 0.6;
             background.addChild(moon);
             
             // TODO: 5 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
+            var buildingHeight = 300;
+            var building;
+            for(var i=0;i<5;++i) {
+            building = draw.rect(75,buildingHeight,'LightGray','Black',1);
+            building.x = 200*i;
+            building.y = groundY-buildingHeight;
+            background.addChild(building);
+            buildings.push(building);
             
+}
             
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png');
@@ -71,11 +81,20 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            tree.x = tree.x + 1;
-            
+            tree.x = tree.x - 1;
+            if(tree.x < -200) {
+                tree.x = canvasWidth;
+            }
             // TODO 5: Part 2 - Parallax
             
+            for(var i=0; i<= buildings.length; i++){
+               buildings[i].x = buildings[i].x - 2; 
+               if(buildings[i].x < -200) {
+                 buildings[i].x = canvasWidth;
+            }
+            }
 
+            
         }
 
         background = new createjs.Container();
