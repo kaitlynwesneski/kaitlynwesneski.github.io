@@ -32,7 +32,7 @@ var level01 = function (window) {
         }
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(false);
+        game.setDebugMode(true);
 
         // BEGIN EDITING YOUR CODE HERE
 var hitZoneSize = 25;
@@ -72,6 +72,15 @@ obstacleImage.y = -25;
 };
 
 createBox(100,200);
+
+var enemy =  game.createGameItem('enemy',25);
+var redSquare = draw.rect(50,50,'red');
+redSquare.x = -25;
+redSquare.y = -25;
+enemy.addChild(redSquare);
+enemy.x = 400;
+enemy.y = groundY-50;
+game.addGameItem(enemy);
 }
 };
 
