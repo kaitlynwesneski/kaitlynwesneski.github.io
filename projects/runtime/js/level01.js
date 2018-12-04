@@ -18,12 +18,17 @@ var level01 = function (window) {
             gameItems: [
                 {type: 'sawblade',x:400,y:groundY},
                 {type: 'sawblade',x:600,y:groundY},
-                {type: 'sawblade',x:900,y:groundY}
+                {type: 'sawblade',x:900,y:groundY},
+                {type: 'box',x:100,y:200}
             ]
         };
         for (var i=0; i<levelData.gameItems.length; i++){
             
+            if (levelData.gameItems[i].type === 'sawblade') {
             createSawBlade(levelData.gameItems[i].x, levelData.gameItems[i].y)
+            }else if (levelData.gameItems[i].type === 'box'){
+            createBox(levelData.gameItems[i].x, levelData.gameItems[i].y)    
+            }
         }
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
@@ -54,7 +59,20 @@ createSawBlade(1100,350);
 createSawBlade(800,250);
 createSawBlade(500,370);
 
-    }
+    
+function createBox(x,y) {
+var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
+myObstacle.x = x;
+myObstacle.y = y;
+game.addGameItem(myObstacle); 
+var obstacleImage = draw.bitmap('img/sawblade.png');
+myObstacle.addChild(obstacleImage);
+obstacleImage.x = -25;
+obstacleImage.y = -25;
+};
+
+createBox(100,200);
+}
 };
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
