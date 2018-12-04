@@ -81,6 +81,18 @@ enemy.addChild(redSquare);
 enemy.x = 400;
 enemy.y = groundY-50;
 game.addGameItem(enemy);
+enemy.velocityX = -1;
+enemy.rotationalVelocity = 10;
+enemy.onPlayerCollision = function() {
+    console.log('The enemy has hit Halle');
+    game.changeIntegrity(-10);
+    enemy.fadeOut();
+};
+enemy.onProjectileCollision = function() {
+    console.log('Halle has hit the enemy');
+    game.increaseScore(100);
+    enemy.fadeOut();
+}
 }
 };
 
