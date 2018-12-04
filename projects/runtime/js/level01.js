@@ -36,6 +36,19 @@ var obstacleImage = draw.bitmap('img/sawblade.png');
 myObstacle.addChild(obstacleImage);
 obstacleImage.x = -25;
 obstacleImage.y = -25;
+function createSawBlade(x,y) {
+    var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
+myObstacle.x = x;
+myObstacle.y = y;
+game.addGameItem(myObstacle); 
+var obstacleImage = draw.bitmap('img/sawblade.png');
+myObstacle.addChild(obstacleImage);
+obstacleImage.x = -25;
+obstacleImage.y = -25;
+}  
+createSawBlade(1100,350);
+createSawBlade(800,250);
+createSawBlade(500,370);
     }
 };
 
