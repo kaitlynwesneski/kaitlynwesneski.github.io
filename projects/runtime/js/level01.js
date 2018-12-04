@@ -21,6 +21,10 @@ var level01 = function (window) {
                 {type: 'sawblade',x:900,y:groundY}
             ]
         };
+        for (var i=0; i<levelData.gameItems.length; i++){
+            
+            createSawBlade(levelData.gameItems[i].x, levelData.gameItems[i].y)
+        }
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
         game.setDebugMode(false);
@@ -49,6 +53,7 @@ obstacleImage.y = -25;
 createSawBlade(1100,350);
 createSawBlade(800,250);
 createSawBlade(500,370);
+
     }
 };
 
