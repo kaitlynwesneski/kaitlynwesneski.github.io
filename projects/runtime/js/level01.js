@@ -72,14 +72,14 @@ obstacleImage.y = -25;
 };
 
 createBox(100,200);
-
+function createEnemy(x,y) {
 var enemy =  game.createGameItem('enemy',25);
 var redSquare = draw.rect(50,50,'red');
 redSquare.x = -25;
 redSquare.y = -25;
 enemy.addChild(redSquare);
-enemy.x = 400;
-enemy.y = groundY-50;
+enemy.x = x;
+enemy.y = y;
 game.addGameItem(enemy);
 enemy.velocityX = -1;
 enemy.rotationalVelocity = 10;
@@ -94,7 +94,31 @@ enemy.onProjectileCollision = function() {
     enemy.fadeOut();
 }
 }
+createEnemy(400,groundY - 50);
+
+function createReward(x,y) {
+var enemy =  game.createGameItem('enemy',25);
+var redSquare = draw.rect(50,50,'blue');
+redSquare.x = -25;
+redSquare.y = -25;
+enemy.addChild(redSquare);
+enemy.x = x;
+enemy.y = y;
+game.addGameItem(enemy);
+enemy.velocityX = -1;
+enemy.rotationalVelocity = 10;
+enemy.onPlayerCollision = function() {
+    console.log('The enemy has hit Halle');
+    game.increaseScore(100)
+    enemy.fadeOut();
 };
+}
+createReward(500, groundY-20);
+
+}
+};
+
+
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
